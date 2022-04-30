@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+from bs4 import BeautifulSoup
+import requests
+
+
+# In[2]:
+
+
+url ='https://www.britannica.com/topic/Winners-of-the-Nobel-Prize-for-Economics-1856936'
+
+
+# In[3]:
+
+
+response = requests.get(url)
+
+
+# In[4]:
+
+
+response
+
+
+# In[5]:
+
+
+data = response.text
+
+
+# In[6]:
+
+
+data
+
+
+# In[7]:
+
+
+soup = BeautifulSoup(data,'html.parser')
+
+
+# In[8]:
+
+
+tags = soup.find_all('td')
+
+
+# In[9]:
+
+
+tags
+
+
+# In[16]:
+
+
+names = soup.find_all("td")
+
+
+# In[17]:
+
+
+for name in names:
+    print(name.text)
+
+
+# In[ ]:
+
+
+
+
